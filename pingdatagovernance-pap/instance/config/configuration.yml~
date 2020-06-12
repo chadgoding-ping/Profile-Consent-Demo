@@ -4,11 +4,11 @@ server:
   adminConnectors: []
   applicationConnectors:
   - type: "https"
-    port: "${PING_PORT:-443}"
-    keyStoreType: "${PING_KEYSTORE_TYPE:-PKCS12}"
-    keyStorePath: "${PING_KEYSTORE_PATH:-config/keystore.p12}"
-    keyStorePassword: "${PING_KEYSTORE_PASSWORD:-75351098}"
-    certAlias: "${PING_CERT_ALIAS:-server-cert}"
+    port: "9443"
+    keyStoreType: "PKCS12"
+    keyStorePath: "config/keystore.p12"
+    keyStorePassword: "75351098"
+    certAlias: "server-cert"
     validateCerts: "false"
     validatePeers: "false"
 core:
@@ -18,13 +18,13 @@ core:
   Database.User: "pap_user"
   Database.Password: "Symphonic2014!"
   Authentication.DecisionPoint.Protocol: "shared secret"
-  Authentication.SharedSecret: "${PING_SHARED_SECRET:-2FederateM0re}"
+  Authentication.SharedSecret: "2FederateM0re"
   License.Path: "PingDataGovernance.lic"
   DecisionResponse.AuditLogView: "Errors,Statements,EncryptSecrets,EvaluationLog,Request"
 enableUIServing: true
 enableSwagger: true
 ui:
-  REST_URL: "https://${PING_HOSTNAME:-pingdatagov-pap-ping-cloud-devops-eks-cprice.ping-devops.com}/api/"
+  REST_URL: "https://demo.byu.ping-eng.com/api/"
   statements:
   - "config/advice/add-filter.json"
   - "config/advice/combine-scim-search-authorizations.json"
@@ -36,7 +36,7 @@ ui:
   - "config/advice/modify-attributes.json"
   - "config/advice/modify-query.json"
   authType: "credentials"
-  usernames: "${PING_USERNAMES:-admin}"
+  usernames: "admin"
 logging:
   level: "INFO"
   loggers:
